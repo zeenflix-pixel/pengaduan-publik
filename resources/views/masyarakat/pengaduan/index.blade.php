@@ -21,21 +21,21 @@
                         <th>Isi Laporan</th>
                         <th>Status</th>
                         <th>Tanggapan</th>
-                        <th></th>
+                        <th>Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
                     @forelse($pengaduan as $p)
                     <tr>
                         <td class="fw-semibold small">{{ $p->id_pengaduan }}</td>
-                        <td><span class="badge bg-secondary">{{ $p->kategori->nama_kategori }}</span></td>
+                        <td><span class="badge bg-secondary">{{ $p->kategori->nama_kategori ?? '-' }}</span></td>
                         <td class="small">{{ \Carbon\Carbon::parse($p->tanggal_lapor)->format('d/m/Y') }}</td>
                         <td class="small text-truncate" style="max-width:200px;">{{ $p->isi_laporan }}</td>
                         <td>
                             <span class="badge badge-{{ $p->status }}">{{ ucfirst($p->status) }}</span>
                         </td>
                         <td class="text-center">
-                            @if($p->tanggapan->count() > 0)
+                            @if($p->tanggapan && $p->tanggapan->count() > 0)
                                 <span class="badge bg-info">{{ $p->tanggapan->count() }}</span>
                             @else
                                 <span class="text-muted small">-</span>

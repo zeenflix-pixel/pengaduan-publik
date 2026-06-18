@@ -46,6 +46,7 @@ class AuthController extends Controller
             'telepon'  => 'nullable|string|max:15',
             'alamat'   => 'nullable|string',
             'password' => 'required|string|min:6|confirmed',
+            'email'    => 'nullable|email|max:100',
         ]);
 
         // Simpan ke tabel masyarakat

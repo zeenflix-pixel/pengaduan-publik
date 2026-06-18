@@ -12,7 +12,7 @@ class Masyarakat extends Model
     protected $keyType = 'string';
     public $timestamps = false; // ← TAMBAHKAN INI
 
-    protected $fillable = ['nik', 'nama', 'telepon', 'alamat'];
+    protected $fillable = ['nik', 'nama', 'telepon', 'alamat','email'];
 
     public function pengaduan()
     {

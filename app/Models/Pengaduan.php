@@ -11,7 +11,7 @@ class Pengaduan extends Model
     public $incrementing = false;
     protected $keyType = 'string';
 
-    protected $fillable = ['id_pengaduan', 'nik', 'id_kategori', 'tanggal_lapor', 'isi_laporan', 'status'];
+  protected $fillable = ['id_pengaduan', 'nik', 'id_kategori', 'tanggal_lapor', 'isi_laporan', 'status', 'email'];
 
     public function masyarakat()
     {

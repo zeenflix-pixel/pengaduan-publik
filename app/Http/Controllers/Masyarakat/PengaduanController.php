@@ -44,14 +44,15 @@ class PengaduanController extends Controller
             'isi_laporan' => 'required|string|min:20',
         ]);
 
-        Pengaduan::create([
-            'id_pengaduan' => Pengaduan::generateId(),
-            'nik'          => auth()->user()->identifier,
-            'id_kategori'  => $request->id_kategori,
-            'tanggal_lapor'=> now(),
-            'isi_laporan'  => $request->isi_laporan,
-            'status'       => 'menunggu',
-        ]);
+       Pengaduan::create([
+    'id_pengaduan'  => Pengaduan::generateId(),
+    'nik'           => auth()->user()->nik,
+    'id_kategori'   => $request->id_kategori,
+    'tanggal_lapor' => now(),
+    'isi_laporan'   => $request->isi_laporan,
+    'email'         => $request->email, // <--- INI TAMBAHANNYA
+    'status'        => 'menunggu',
+]);
 
         return redirect('/masyarakat/pengaduan')->with('success', 'Pengaduan berhasil dikirim!');
     }

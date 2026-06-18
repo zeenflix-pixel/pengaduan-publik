@@ -7,7 +7,17 @@ use App\Http\Controllers\Admin\AdminController;
 use Illuminate\Support\Facades\Route;
 
 // ===== Halaman utama =====
-Route::get('/', fn() => redirect('/login'));
+Route::get('/', function () {
+    if (auth()->check()) {
+        return match (auth()->user()->role) {
+            'admin'      => redirect('/admin/dashboard'),
+            'petugas'    => redirect('/petugas/dashboard'),
+            'masyarakat' => redirect('/masyarakat/dashboard'),
+            default      => redirect('/login'),
+        };
+    }
+    return redirect('/login');
+});
 
 // ===== Auth =====
 Route::middleware('guest')->group(function () {

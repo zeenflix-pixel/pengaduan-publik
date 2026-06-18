@@ -39,6 +39,9 @@
                         <label class="form-label fw-semibold">Nomor Telepon</label>
                         <input type="text" name="telepon" class="form-control"
                                placeholder="08xxxxxxxxxx" value="{{ old('telepon') }}">
+                               <div class="mb-3"> <label for="email" class="form-label">Email <span class="text-danger">*</span></label>
+    <input type="email" class="form-control" name="email" id="email" placeholder="Masukkan Alamat Email" required>
+</div>
                     </div>
                     <div class="mb-3">
                         <label class="form-label fw-semibold">Alamat</label>
